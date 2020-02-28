@@ -21,7 +21,7 @@
     (if issue
       (do
         (db/insert-event (m/issue-schema (:number issue) (str event)))
-        {:status 201})
+        (u/response 201))
       (u/response 400 (u/key-not-found)))))
 
 (defn query [req]
