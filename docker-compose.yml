@@ -1,0 +1,27 @@
+version: "3"
+services:
+  web:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    command: "lein run"
+    environment:
+      WAIT_HOSTS: postgres:5432
+  postgres:
+    image: postgres:9.6
+    container_name: "postgres"
+    environment:
+      - POSTGRES_DB=events
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - TZ=GMT
+    volumes:
+      - "./data/postgres:/var/lib/postgresql/data"
+      - ./db.sql:/docker-entrypoint-initdb.d/db.sql
+    ports:
+      - 5432:5432
+    
