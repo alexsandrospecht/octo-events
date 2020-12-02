@@ -12,11 +12,11 @@ Clojure playground. Project to receive Github Webhook calls.
 
     `sudo ngrok http 3000`
 
-- Create a new Webhook: ​ 
+- Create a new Webhook:
 
     https://developer.github.com/webhooks/creating/
     
-- Create/Update/Close a issue in the repository:
+- Create/Update/Close an issue in the repository:
 
     https://github.com/youruser/yourrepo/issues
 
